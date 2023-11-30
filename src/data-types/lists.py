@@ -1,4 +1,5 @@
 from copy import deepcopy # copia profunda
+from typing import List
 
 colors = [
   "red",
@@ -200,5 +201,71 @@ to_visit = [
   "https://stackoverflow.com",
 ]
 
-remove_stackoverflow = to_visit.pop()
-print(remove_stackoverflow)
+visited_stackoverflow = to_visit.pop() # elimina el ultimo elemento de la lista
+visited_realpython = to_visit.pop(0) # elimina el primer elemento de la lista otra forma seria to_visit.pop(-3)
+print(list([visited_stackoverflow, visited_realpython]))
+
+cache = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
+cache_copy = cache.copy() # creando copia superficial
+
+cache.clear() # otra forma seria cache[:]
+print("cache {}".format(cache))
+
+"""
+  Concatenar listas
+"""
+
+super_heroes_dc = ["batman", "super man"]
+super_heroes_marvel = ["iron man", "captain america"]
+super_heroes_marvel_vs_dc = super_heroes_marvel + super_heroes_dc
+print("marvel vs dc {}".format(super_heroes_marvel_vs_dc))
+
+"""
+  Repetir contenido
+"""
+
+horoscopos = ["aries", "tauro", "geminis"] * 2
+print(horoscopos)
+
+
+# ordenando una lista con sorted
+sorted_cache_copy = sorted(cache_copy, reverse=True) # sorted no afecta a la lista original
+print("sorted cache {}".format(sorted_cache_copy))
+
+"""
+  Recorrer una lista
+"""
+usernames = ["kirito", "naruto", "goku"]
+
+print("\niterando lista")
+for username in usernames:
+  print(username)
+  
+# iterando de forma inversa
+print("\niterando lista con la funcion reversed()")
+for username in reversed(usernames):
+  print(username)
+
+print("\niterando lista con la funcion enumerate()")
+for i, username in enumerate(usernames):
+  print("{} is the index of {}".format(i, username))
+  
+# iterar varias listas en paralelo
+print("\niterando varias listas con la funcion zip()")
+integers = [1,2,3,4,5]
+letters = ["a", "b", "c", "d", "e"]
+floats = [10.0, 11,0, 12.0, 13.0, 14.0, 15.0]
+for i, l, f in zip(integers, letters, floats):
+  print(i, l, f)
+
+def remove_odds(list:List[int]) -> List[int]:
+  for num in list[:]:
+    if num % 2:
+      list.remove(num)
+  return list
+
+print(remove_odds([1,2,3,4,5,6,7,8,9,10]))
+
+"""
+  Construyendo Nuevas Listas Con Comprensiones
+"""
