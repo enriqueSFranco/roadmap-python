@@ -1,3 +1,5 @@
+from copy import deepcopy # copia profunda
+
 colors = [
   "red",
   "orange",
@@ -141,5 +143,62 @@ print("last three {}".format(last_three_letters))
 
 """
   Creación de Copias de una Lista
+  
+  1.- Copia superficial
+  2.- Copia profunda
 """
 
+# copia superficial con el método copy
+countries = ["United States", "Canada", "Poland", "Germany", "Austria"]
+nations = countries.copy() # or nations = copy(countries) -> from copy import copy
+
+id(nations) == id(countries) # identidad diferente
+
+# copia profunda
+matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+
+matrix_copy = deepcopy(matrix)
+
+id(matrix) == id(matrix_copy) # identidad diferente
+
+"""
+  Actualizando elementos de la lista
+"""
+
+digits = [1,2,3,4]
+digits_copy = digits.copy()
+digits[0] = "one"
+digits[1] = "two"
+digits[2] = "three"
+
+print(digits)
+
+# si conocemos el valor de un item pero no su index
+digits[digits.index(4)] = "four"
+print(digits)
+
+digits[::] = digits_copy
+print(digits)
+
+digits[1:1] = [100, 200, 300] # agreandamos la lista [1, 100, 200, 300,, 2, 3, 4]
+print(digits)
+
+digits[1:4] = [] # acortamos la lista [1,2,3,4]
+print(digits)
+
+digits.extend([5,6,7,8,9])
+print(digits)
+
+digits.insert(0, 0)
+digits.insert(len(digits), 10) # digits[len(digits):] = [10]
+print(digits)
+
+# eliminando elementos de la lista
+to_visit = [
+  "https://realpython.com",
+  "https://python.org",
+  "https://stackoverflow.com",
+]
+
+remove_stackoverflow = to_visit.pop()
+print(remove_stackoverflow)
