@@ -64,13 +64,13 @@ list_empty = []
 Usando el Constructor list()
 """
 
-list((0,1,2,3,4,5,6,7,8,9))
+numbers = list((0,1,2,3,4,5,6,7,8,9))
 
-list({"circle", "square", "triangle"})
+figures = list({"circle", "square", "triangle"})
 
-list({"name": "kike", "age": 20, "city": "Mexico City"})
+user_data = list({"name": "kike", "age": 20, "city": "Mexico City"})
 
-list("pythonista")
+pythonista = list("pythonista")
 
 """
   Usando el constructor del objeto list()
@@ -96,3 +96,50 @@ print(list(fibonacci))
 
 digits_squared = [number ** 2 for number in range(1, 11)]
 print(digits_squared)
+
+"""
+  Acceso a elementos en una lista: indexación
+"""
+
+languages = ["pyhton", "java", "c++", "javascript", "dart", "kotlin", "swift"]
+language_python = languages[0] # recupera el string python
+first_language = languages[-6] # recupera el string python 
+language_kotlin = languages[5] # recupera el string kotlin
+last_language = languages[-1] # recupera el string swift
+language_swift = languages[6] # recupera el string swift
+
+employees = [
+  {"name": "jhon", "age": 22, "job": "Software Engineer"},
+  {"name": "Alice", "age": 24, "job": "Web Developer"},
+  {"name": "Bob", "age": 32, "job": "Data Analyst"},
+  {"name": "Mark", "age": 22, "job": "Intern"},
+  {"name": "Samantha", "age": 36, "job": "Project Manager"}
+]
+
+print(employees[0]["job"])
+
+"""
+  Recuperar Múltiples Artículos de una Lista: Slice
+  sitaxis: list_object[start:stop:step]
+  
+  - start: Especifica el índice en el que desea iniciar el corte. El segmento resultante incluye el elemento en este índice. (valor predeterminado 0)
+  - stop: Especifica el índice en el que desea que el corte deje de extraer elementos. El segmento resultante no incluye el elemento en este índice. (valor predeterminado len(list_object))
+  - step: Proporciona un valor entero que representa cuántos elementos omitirá el corte en cada paso. (valor predeterminado 1)
+"""
+
+letters = ["A", "a", "B", "b", "C", "c", "D", "d"]
+print("letters {}".format(letters))
+upper_letters = letters[0::2] # or letters[::2]
+print("upper letters {}".format(upper_letters))
+
+lower_letters = letters[1::2] # comienza en el indice 1, recorreco toda la lista y va de 2 en 2
+print("lower letters {}".format(lower_letters))
+
+last_three_letters = letters[-3::]
+print("last three {}".format(last_three_letters))
+
+
+"""
+  Creación de Copias de una Lista
+"""
+
