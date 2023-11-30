@@ -1,5 +1,4 @@
 from copy import deepcopy # copia profunda
-from typing import List
 
 colors = [
   "red",
@@ -269,3 +268,33 @@ print(remove_odds([1,2,3,4,5,6,7,8,9,10]))
 """
   Construyendo Nuevas Listas Con Comprensiones
 """
+numbers = ["1", "2", "3", "4"]
+numbers = [int(num) for num in numbers]
+
+"""
+Genera una lista con los primeros 15 números pares usando comprensiones de lista.
+"""
+pares = [num for num in range(2, 11, 2)]
+print(pares)
+
+"""
+Dada una lista de palabras, crea una nueva lista que contenga 
+solo aquellas palabras que tengan más de tres letras.
+"""
+words = ["python", "java", "ruby", "c", "javascript"]
+words = [word for word in words[:] if len(word) > 3]
+print(words)
+
+"""
+Genera una lista con los primeros 20 números que son divisibles por 3 y 5.
+"""
+divisibles = [num for num in range(1,101) if num % 3 == 0 and num % 5 == 0] # [15, 30, 45, 60, 75, 90]
+print(divisibles)
+
+"""
+Dada una lista de temperaturas en grados Celsius, convierte cada temperatura 
+a Fahrenheit utilizando la fórmula (C * 9/5) + 32.
+"""
+temperaturas_celsius = [20, 25, 30, 35, 40]
+
+temperaturas_fahrenheit = [(temp * 9 /5) + 32 for temp in temperaturas_celsius[:]]
