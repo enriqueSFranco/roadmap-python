@@ -1,7 +1,14 @@
 from typing import List
+import random
 
 """
   Construyendo Nuevas Listas Con Comprensiones
+  sintaxis: new_list = [expression for member in iterable]
+  Cada comprensión de lista en Python incluye tres elementos:
+
+  1.- Expression es el propio miembro, una llamada a un método, o cualquier otra expresión válida que devuelva un valor. 
+  2.- Member es el objeto o valor en la lista o iterable. En el ejemplo anterior, el valor del miembro es i.
+  3.- Iterable es una lista, conjunto, secuencia, generador, o cualquier otro objeto que pueda devolver sus elementos uno a la vez. 
 """
 numbers = ["1", "2", "3", "4"]
 numbers = [int(num) for num in numbers]
@@ -95,6 +102,48 @@ def split_list(list_object, chunk_size) -> List[int]:
   return chunks
 
 print(split_list(input, 4))
+
+txns = [1.09, 23.56, 57.84, 4.56, 6.78]
+TAX_RATE = .08
+
+def get_price_with_tax(txn: float):
+  return txn * (1 + TAX_RATE)
+
+final_price = [get_price_with_tax(txn) for txn in txns]
+print(final_price)
+
+
+"""
+  Usando logica condicional en list comprehension
+  new_list = [expression for member in iterable (if conditional)]
+"""
+sentence = 'the rocket came back from mars'
+vowels = [vowel for vowel in sentence if vowel in "aeiou"]
+print(vowels)
+
+def is_consonant(letter: str) -> list[str] :
+  vowels = {'a', 'e', 'i', 'o', 'u'}
+  return letter.isalpha() and letter.lower() not in vowels
+
+consonants = [letter for letter in sentence if is_consonant(letter)]
+print(consonants)
+
+"""
+  Usando Comprensiones de Conjunto y Diccionario
+"""
+quote = "life, uh, finds a way"
+unique_vowels = {vowel for vowel in quote if vowel in "aeiou"}
+print(unique_vowels)
+
+
+"""
+  Usando el Operador de Morsa
+"""
+def get_weather_data():
+  return random.randrange(90, 150)
+# recuperar las temperaturas >= 100
+hot_temps = [temp for _ in range(20) if (temp := get_weather_data()) >= 100]
+print(hot_temps)
 
 """
   Debe usar listas cuando necesite:
