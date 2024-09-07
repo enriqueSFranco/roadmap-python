@@ -68,12 +68,17 @@ class SportingEvent:
       Medal.BRONZE: shuflee_participants[2]
     }
 
+class SportingEventFactory:
+  @staticmethod
+  def create_event(name: str) -> SportingEvent:
+    return SportingEvent(name)
+
 class Olympic:
   def __init__(self) -> None:
     self.sporting_events: Dict[str: SportingEvent] = {} # {event1: SportingEvent(name, participants, results)}
 
   def create_sporting_event(self, name) -> None:
-    self.sporting_events[name] = SportingEvent(name)
+    self.sporting_events[name] = SportingEventFactory.create_event(name)
 
   def register_participant(self, event_name: str, participant: Participant) -> bool:
     event = self.sporting_events.get(event_name)
