@@ -13,7 +13,10 @@
 #  y busque una posible combinación para repartirlos.
 # 2. Muestra el reparto final o el error al realizarlo.
 
-def es_primo(num: int) -> bool:
+from typing import Dict
+
+
+def is_prime(num: int) -> bool:
   if num <= 1:
     return False
   
@@ -34,8 +37,32 @@ def es_primo(num: int) -> bool:
     
   return True
 
-print(es_primo(5))
+def distribute_rings(total_rings: int):
+  if total_rings < 6:
+    return "No hay suficientes anillos para repartir"
+  
+  sauron_rings = 1
+  remaining_rings = total_rings - sauron_rings
 
+  # Asignamos anillos a Elfos, Enanos y Hombres
+  for elves in range(1, remaining_rings, 2): # Elfos: numero impar
+    for dwarf in range(2, remaining_rings - elves + 1): # Enanos: numero primo
+      if is_prime(dwarf):
+        humans = remaining_rings - elves - dwarf # Humanos: numero par
+        if humans >= 0 and humans % 2 == 0:
+          return {
+            "Elfos": elves,
+            "Enanos": dwarf,
+            "Hombres": humans,
+            "Sauron": sauron_rings
+          }
+  
+  return "No se pudieron repartir los anillos"
+
+
+if __name__ == "__main__":
+  distributed_rings = distribute_rings(10)
+  print(distributed_rings)
 # Un número primo es un número entero mayor que 1 que solo tiene dos divisores: 1 y él mismo. Por ejemplo, 2, 3, 5 y 7 son números primos.
 
 # 1. **Verificaciones iniciales**:
