@@ -97,5 +97,6 @@ def select_winners(file_name):
 
 if __name__ == "__main__":
   file_name = "data.csv"
-  create_csv_file(file_name, TOTAL_RECORDS, HEADERS)
+  if not os.path.exists(file_name):
+    create_csv_file(file_name, TOTAL_RECORDS, HEADERS)
   select_winners(file_name)
