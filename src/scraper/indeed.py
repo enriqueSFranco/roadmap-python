@@ -63,12 +63,19 @@ async def main():
       # localizar los inputs dentro del formulario para introducir la informacion
       input_what = page.locator('input#text-input-what')
       input_where = page.locator('input#text-input-where')
+      btn_search = page.get_by_text('Buscar empleos')
 
-      if input_what and input_where:
+      if input_what and input_where and btn_search:
         logger.info('✅ Inputs localizados exitosamente')
         await input_what.fill("Desarrollador de software")
         await input_where.fill("Ciudad de México")
         logger.info('✅ Inputs rellenados exitosamente')
+
+        await btn_search.click()
+        logger.info('✅ Botón "Buscar empleos" clicado exitosamente')
+
+        # https://mx.indeed.com/jobs?q=react+junior&l=Ciudad+de+M%C3%A9xico&from=searchOnHP&vjk=5cd5ab50cff4e541
+        await page.wait_for_url("https://mx.indeed.com/jobs?q=*")
       else:
         logger.warning('❌ Inputs no encontrados')
 
