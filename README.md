@@ -69,7 +69,7 @@ En este repositorio también encontrarás mis proyectos en los que estoy trabaja
 | Concepto                | Estado        |
 |-------------------------|---------------|
 | Fundamentos             | ✅ Completado  |
-| Programación Orientada a Objetos | 🔄 En progreso |
+| Programación Orientada a Objetos | ✅ Completado |
 | Conceptos Avanzados     | ⚙️ En progreso |
 | Librerías               | ⚙️ En progreso |
 | Proyectos               | 🚧 En progreso |
