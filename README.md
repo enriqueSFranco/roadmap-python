@@ -74,12 +74,5 @@ En este repositorio también encontrarás mis proyectos en los que estoy trabaja
 | Librerías               | ⚙️ En progreso |
 | Proyectos               | 🚧 En progreso |
 
----
-
-## 🙌 Contribuciones
-
-Si tienes algún proyecto o recurso interesante que pueda agregar al roadmap, ¡estaré encantado de recibir una contribución! Haz un **fork** del repositorio y abre un **pull request**. ¡Gracias por tu apoyo! 🤝
-
----
 
 > *"La programación es como contar historias, solo que las máquinas te ayudan a hacer que sean reales."* 💡
